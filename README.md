@@ -1,4 +1,4 @@
-# portfolio
+# Michael Demetradze's Data Analyst portfolio.
 
 ## Projects
 1. Customer Shopping Trends Analysis - SQL:
