@@ -1,7 +1,7 @@
 # Michael Demetradze's Data Analyst portfolio.
 
 ## Projects
-1. Customer Shopping Trends Analysis - SQL:
+1. [Customer Shopping Trends Analysis](https://github.com/MikeDemetr/portfolio/blob/main/Customer%20Shopping%20Trends%20Analysis) - SQL:
 I conducted an analysis of customer shopping patterns using a dataset that included customer details, purchase records and interaction history. This project involved using SQL queries to extract insights, from the dataset.
 
 I conducted an in-depth analysis of customer shopping trends using a dataset containing customer information, purchase data, and interaction history. This project involved the application of SQL queries to derive valuable insights from the dataset.
