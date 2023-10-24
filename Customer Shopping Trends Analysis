@@ -1,0 +1,112 @@
+--Dataset: Customer Shopping Trends Dataset
+--Source: Kaggle https://www.kaggle.com/datasets/iamsouravbanerjee/customer-shopping-trends-dataset/
+--Queried using: MySql Workbench 8.0
+
+select *
+from sql_project.shopping_trends1;
+
+select *
+from sql_project.shopping_trends2;
+
+
+
+-- Age distribution. Lets see what range of age we have in our db.
+select Age, count(Age) as CustomerCount
+from sql_project.shopping_trends1
+group by Age
+order by Age ASC;
+
+-- Gender Analysis. 
+select Gender, count(*)
+from sql_project.shopping_trends1
+group by 1;
+
+-- Category Popularity.
+select Category, count(*) as PurchaseAmount
+from sql_project.shopping_trends1
+group by 1
+order by 2 desc;
+
+-- Customer segmentation by age and gender.  
+select
+ case
+  when Age < 30 then "Under 30"
+  when Age between 30 and 50 then "30-50"
+  else "Over 50"
+end as AgeGroup,
+Gender,
+count(*) as CustomerAmount
+from sql_project.shopping_trends1
+group by 2, 1
+order by 3 desc;
+
+-- Seasonal Trend Analysis. Lets understand how customer interactions vary with the seasons.
+select season, count(*) as InterctionCount
+from sql_project.shopping_trends1
+group by 1;
+
+-- Review Rating Analysis. Lets find out insights about the distribution of review ratings provided by customers.
+select `Review Rating`, count(*) as RatingCount
+from sql_project.shopping_trends1
+group by 1 -- additionally we can add HAVING(after group by) for filtering our results, for ex: HAVING `Review Rating` > 4.
+order by 1 desc;
+
+-- Location and Categories. Which categories are most popular in each location
+select location, category, count(*) as PurchaseCount
+from sql_project.shopping_trends1
+group by 1,2
+order by 1, 3 desc;
+
+-- Age and Review Ratings. How review ratings vary by age group 
+select
+   case
+     when Age < 25 then "Under 25"
+     when Age between 25 and 35 then "25-35"
+     when Age between 35 and 55 then "35-55"
+     else "Over 55"
+   end as AgeGroup,
+round (avg(`Review Rating`), 3) as AverageRating
+from sql_project.shopping_trends1
+group by 1
+order by 2 desc;
+
+
+-- lets rename column  `Purchase Amount (USD)` for convenience.
+ALTER TABLE sql_project.shopping_trends1
+RENAME COLUMN `Purchase Amount (USD)` TO Purchase_amount;
+
+
+-- What average purchase amount by age group.
+with AgeGrouped as (
+  select
+   case
+     when Age < 25 then "Under 25"
+     when Age between 25 and 35 then "25-35"
+     when Age between 35 and 55 then "35-55"
+     else "Over 55"
+   end as AgeGroup, 
+   Purchase_amount
+   from sql_project.shopping_trends1
+)
+ select AgeGroup, avg(Purchase_amount) as AvgPurchaseAmount
+ from AgeGrouped
+ group by 1
+ order by 2 desc;
+
+-- Which category has the highest spending
+select  category, sum(Purchase_amount) as TotalPurchaseAmount
+from sql_project.shopping_trends1
+group by 1
+order by 2 desc;
+
+alter table sql_project.shopping_trends1
+rename column id to Customer_id;
+
+alter table sql_project.shopping_trends2
+rename column id2 to Customer_id;
+
+-- Does subscription impact on average purchase amount. 
+select avg(`shopping_trends1`.`Purchase_amount`) as AvgPurchaseAmount, `shopping_trends2`.`Subscription Status`
+from sql_project.shopping_trends1
+left join sql_project.shopping_trends2 on `shopping_trends1`.`customer_id` = `shopping_trends2`.`customer_id`
+group by 2;
