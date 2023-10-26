@@ -14,7 +14,7 @@ I conducted an analysis of customer shopping patterns using a dataset that inclu
 - Analyzed the impact of subscription programs on average purchase amounts, providing insights into program effectiveness.
   
 
-2. [How I Met Your Mother Dataset](https://github.com/MikeDemetr/portfolio/blob/main/The%20Yellow%20Umbrella%3A%20Exploring%20HIMYM%20Episode%20Ratings) - Python: I undertook a data analysis project aimed at exploring and uncovering insights from a dataset related to the popular television series "How I Met Your Mother" (HIMYM). The primary objectives of this project were to understand the factors influencing episode ratings and viewership trends over time.
+2. [The Yellow Umbrella: Exploring HIMYM Episode Ratings](https://github.com/MikeDemetr/portfolio/blob/main/The%20Yellow%20Umbrella%3A%20Exploring%20HIMYM%20Episode%20Ratings) - Python: I undertook a data analysis project aimed at exploring and uncovering insights from a dataset related to the popular television series "How I Met Your Mother" (HIMYM). The primary objectives of this project were to understand the factors influencing episode ratings and viewership trends over time.
 
 - Data Cleaning and Preprocessing: I carefully cleaned and prepared the dataset, ensuring it was free of any missing information and that all data was consistent and reliable. This step was crucial in setting the stage for the rest of the analysis.
 - Director and Writer Analysis: I delved deep into understanding how directors and writers influenced the ratings of episodes. By categorizing and examining the data, I pinpointed the directors and writers who were associated with the highest-rated episodes in the series.
