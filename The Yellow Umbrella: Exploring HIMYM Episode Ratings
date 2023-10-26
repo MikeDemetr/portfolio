@@ -1,0 +1,96 @@
+
+
+
+
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("/Users/kamikadze/Desktop/portfolio/python project/himym_episodewise.csv")
+
+missing_data = df.isnull().sum()
+print(missing_data)
+
+#Let's check the data types of columns in df.
+
+df.dtypes
+
+# I want to convert the data types of some columns to string type for convenience.
+
+df['SNo'] = df['SNo'].astype(str)
+df['Season'] = df['Season'].astype(str)
+df['Episode'] = df['Episode'].astype(str)
+
+#Let's look at summary statistics to gain a quick overview of the dataset's key numerical attributes.
+summary_stats = df.describe()
+print(summary_stats)
+
+
+#Let's visualize the distribution of IMDb ratings.
+plt.figure(figsize=(8, 4))
+sns.histplot(df['IMDB_Rating'], kde=True)
+plt.xlabel('IMDB Rating')
+plt.ylabel('Frequency')
+plt.title('Distribution of IMDb Ratings')
+plt.show()
+
+
+#"Let's visualize the evolution of IMDb ratings over time.
+df['DateAired'] = pd.to_datetime(df['DateAired'])  
+sns.lineplot(data=df, x='DateAired', y='IMDB_Rating')
+plt.xlabel('Date Aired')
+plt.ylabel('IMDB Rating')
+plt.title('IMDB Ratings Over Time')
+plt.show()
+
+
+# Let's calculate and sort the average IMDb ratings for episodes based on the writers.
+writer_ratings = df.groupby('Writers')['IMDB_Rating'].mean()
+writer_ratings = writer_ratings.sort_values(ascending=False)
+
+plt.figure(figsize=(12, 6))
+top_writers = writer_ratings.head(10)  
+sns.barplot(x=top_writers.values, y=top_writers.index, palette='viridis')
+plt.xlabel('Average IMDb Rating')
+plt.ylabel('Writers')
+plt.title('Top 10 Writers by Average IMDb Rating')
+plt.show()
+
+# # Let's calculate and sort the average IMDb ratings for episodes based on the directors.
+director_ratings = df.groupby('Director')['IMDB_Rating'].mean()
+director_ratings = director_ratings.sort_values(ascending=False)
+
+plt.figure(figsize=(12, 6))
+sns.barplot(data=director_ratings.head(10).reset_index(), x='IMDB_Rating', y='Director', palette='viridis')
+plt.xlabel('Average IMDb Rating')
+plt.ylabel('Director')
+plt.title('Top-Rated Directors')
+plt.show()
+
+
+#Let's visualize the trends in IMDb ratings and viewership across seasons
+#to gain insights into how the show's performance evolved over time.
+season_imdb_stats = df.groupby(['Season'])['IMDB_Rating'].agg(['mean', 'min', 'max'])
+season_viewership_stats = df.groupby(['Season'])['Viewers'].agg(['mean', 'min', 'max'])
+season_imdb_stats = episode_imdb_stats.reset_index()
+season_viewership_stats = episode_viewership_stats.reset_index()
+
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=season_imdb_stats, x='Season', y='mean', label='IMDB Rating')
+sns.lineplot(data=season_viewership_stats, x='Season', y='mean', label='Viewership')
+plt.xlabel('Season')
+plt.ylabel('Value')
+plt.title('IMDB Ratings and Viewership by Season')
+plt.legend()
+plt.show()
+
+
+# Calculate and display the correlation matrix
+correlation_matrix = df.corr()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Matrix Heatmap')
+plt.show()
