@@ -1,5 +1,5 @@
 # Michael Demetradze's Data Analyst portfolio.
-
+Hello, and thanks for stopping by! This repository contains examples of my projects. Below there ara SQL and Python projects, including data visualization I created using Tableau. Feel free to take a look around and [reach out](https://www.linkedin.com/in/michael-demetradze/) if you have any feedback or questions.
 ## Projects
 1. ### [Customer Shopping Trends Analysis](https://github.com/MikeDemetr/portfolio/blob/main/Customer%20Shopping%20Trends%20Analysis) - SQL:
 I conducted an analysis of customer shopping patterns using a dataset that included customer details, purchase records and interaction history. This project involved using SQL queries to extract insights, from the dataset.
