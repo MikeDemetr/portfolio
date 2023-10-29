@@ -17,13 +17,12 @@ I conducted an analysis of customer shopping patterns using a dataset that inclu
 2. ### [The Yellow Umbrella: Exploring HIMYM Episode Ratings](https://github.com/MikeDemetr/portfolio/blob/main/The%20Yellow%20Umbrella%3A%20Exploring%20HIMYM%20Episode%20Ratings) - Python:
 I undertook a data analysis project aimed at exploring and uncovering insights from a dataset related to the popular television series "How I Met Your Mother" (HIMYM). The primary objectives of this project were to understand the factors influencing episode ratings and viewership trends over time.
 
-- Data Cleaning and Preprocessing: I carefully cleaned and prepared the dataset, ensuring it was free of any missing information and that all data was consistent and reliable. 
-- Director and Writer Analysis: I delved deep into understanding how directors and writers influenced the ratings of episodes. By categorizing and examining the data, I pinpointed the directors and writers who were associated with the highest-rated episodes in the series.
-- Season and Episode Trends: I investigated how the ratings from viewers (IMDb ratings) and viewership changed throughout different seasons and individual episodes. This analysis allowed me to spot trends and identify seasons and specific episodes that stood out in terms of audience reception.
-- Time Series Analysis: Using the "DateAired" column, I conducted an analysis that tracked how viewership and IMDb ratings evolved over the course of the series. This analysis helped identify recurring patterns and long-term trends, allowing me to draw meaningful conclusions.
-- Correlation Analysis: I explored how IMDb ratings were related to viewership and the number of votes cast by viewers. This analysis revealed important insights into how these key metrics interacted with each other.
-- Presentation and Visualization: To make my findings accessible and engaging for a wide audience, I created clear and visually appealing summaries. These summaries effectively conveyed the story of the analysis, ensuring that both technical and non-technical stakeholders could understand and appreciate the insights.
-
+- I  cleaned and prepared the dataset, ensuring it was free of any missing information and that all data was consistent and reliable.
+- I delved deep into understanding how directors and writers influenced the ratings of episodes.
+- I investigated how the ratings from viewers (IMDb ratings) and viewership changed throughout different seasons and individual episodes. 
+- I conducted an analysis that tracked how viewership and IMDb ratings evolved over the course of the series. 
+- I explored how IMDb ratings were related to viewership and the number of votes cast by viewers.
+- To make my findings accessible and engaging for a wide audience, I created clear and visually appealing summaries. 
 3. ### [World IQ Report](https://public.tableau.com/app/profile/michael.demetradze/viz/WorldIQReport/Dashboard2?publish=yes) - Tableau.
 
 * Data: [Worldwide Average IQ Levels](https://www.kaggle.com/datasets/abhijitdahatonde/worldwide-average-iq-levels)
